@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :airplanes
+
   get 'gateway/index'
 
   root 'gateway#index'

@@ -169,7 +169,6 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  coffee-rails (~> 4.1.0)
   devise
   handlebars_assets
   jbuilder (~> 2.0)
