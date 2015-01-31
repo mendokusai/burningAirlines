@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Burning</title>
+  <title>Burning Airlines</title>
+  <link href='http://fonts.googleapis.com/css?family=Questrial|Sansita+One' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header>
+<div class='header'>
+<div id="brand">
+	<h2><a href="#">BURNING AIRLINES</a></h2>
+</div>
+<div id="menu_options">
+		<ul>
+			<li><a href="#">Planes</a></li> |
+			<li><a href="#">Flights</a></li> |
+			<li><a href="#">Admin</a></li> | 
+			<li><a href="#">Users</a></li>
+		</ul>
+	</div>
+</div>
+</header>
+<main>
 <%= yield %>
-
+</main>
+<footer>
+	Flight with a burning desire!
+</footer>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
