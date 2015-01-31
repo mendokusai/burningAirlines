@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :flights
+
+  get 'airplanes/index'
+
   resources :airplanes
 
   get 'gateway/index'
