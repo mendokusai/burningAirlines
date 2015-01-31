@@ -1,9 +1,5 @@
-# create_table "airplanes", force: :cascade do |t|
-#     t.string   "name"
-#     t.integer  "rows"
-#     t.integer  "columns"
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at"
+
+Airplane.destroy_all
 
 plane1 = Airplane.create({
 		name: "727A",
@@ -28,3 +24,10 @@ plane4 = Airplane.create({
 		rows: 4,
 		columns: 10
 	})
+
+Flight.destroy_all
+
+Flight.create(flight_number: "JQ123", origin:"SYD", destination:"LA", date: 2014, plane_id:plane1.id)
+Flight.create(flight_number: "FQ123", origin:"LA", destination:"BUL", date: 2014, plane_id:plane2.id)
+Flight.create(flight_number: "KQ123", origin:"HK", destination:"SIN", date: 2014, plane_id:plane3.id)
+Flight.create(flight_number: "TQ123", origin:"LON", destination:"CHINA", date: 2014, plane_id:plane4.id)

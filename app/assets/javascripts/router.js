@@ -8,8 +8,12 @@ App.Router = Backbone.Router.extend({
 	planes: function(){
 		var planesCollection = new App.Planes();
 		planesCollection.fetch().then(function(){
-			var planesView = new App.PlanesView({ collection: planesCollection });
-			$("#container").html(planesView.render().el);
+			App.planesView = new App.PlanesView({ collection: planesCollection });
+			$("#planes_button").on("click", App.planesView.renderPlanes);
+			$('#add_plane').on('click', App.planesView.renderForm);
+			$('#submit_plane').on('click', App.planesView.addPlane);
+			$('#cancel_form').on('click', App.planesView.cancelForm);
+			$('.plane').on('dblclick', App.planesView.showPlane);
 		});
 	}
 })

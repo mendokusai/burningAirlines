@@ -2,7 +2,48 @@ var App = App || {};
 
 App.PlanesView = Backbone.View.extend({
 	events: {
-		// 'click button': 'renderPlanes'
+		'click #planes_button': 'renderPlanes',
+		'click #add_plane': 'renderForm',
+		'click #submit_plane': 'addPlane',
+		'click #cancel_form': 'cancelForm',
+		'dblclick .plane': 'showPlane'
+	},
+
+	showPlane: function(){
+		console.log(this.$el.find('.name').val());
+		$('#flight_list').fadeOut(200);
+		$('#flight_form').html(JST['planes/plane_form']());
+	},
+
+	cancelForm: function(event){
+		event.preventDefault();
+		this.$el.find('form').fadeOut();
+		$('#flight_list').fadeIn();
+
+	},
+
+	addPlane: function(event){
+		event.preventDefault();
+		this.collection.create({
+			columns: this.$el.find('input.columns').val(),
+			name: this.$el.find('.name').val(),
+			rows: this.$el.find('.rows').val(),
+			
+		});
+		this.$el.find('form').fadeOut();
+		this.render();
+		$('#flight_list').fadeIn();
+	},
+
+	renderForm: function(){
+		$('#flight_list').fadeOut(200);
+		$('#flight_form').fadeIn().html(JST['planes/plane_form']());
+	},
+
+	renderPlanes: function(event){
+		event.preventDefault();
+		$("#container").html(App.planesView.render().el).fadeIn();
+		
 	},
 
 	renderCollection: function(data){
@@ -15,7 +56,7 @@ App.PlanesView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html(JST['app']());
+		this.$el.html(JST['planes/app']());
 		this.renderCollection(this.collection);
 		return this;
 	}  

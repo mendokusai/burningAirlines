@@ -1,4 +1,6 @@
-
+/*
+*= require_tree ./
+*/
 
 * {
 	box-sizing: border-box;
@@ -30,6 +32,14 @@ a {
 
 a:hover {
 	color: #ef6f2f;
+}
+
+.plane_form{
+	display: inline-block;
+}
+
+.plane:hover{
+	background-color: #d2079d;
 }
 #name_box {
 	float:right;
