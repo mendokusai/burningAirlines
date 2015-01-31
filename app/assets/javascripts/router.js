@@ -2,10 +2,16 @@ var App = App || {};
 
 App.Router = Backbone.Router.extend({
 	routes: {
-		'' : 'planes'
+		'flights' : 'flights',
+		'airplanes' : 'planes',
 	},
 
+	openPage: function(url) {
+    this.navigate(url, { trigger: true });
+  },
+
 	planes: function(){
+		 App.router.navigate("/airplanes", { trigger: true });
 		var planesCollection = new App.Planes();
 		planesCollection.fetch().then(function(){
 			App.planesView = new App.PlanesView({ collection: planesCollection });
@@ -15,6 +21,19 @@ App.Router = Backbone.Router.extend({
 			$('#cancel_form').on('click', App.planesView.cancelForm);
 			$('.plane').on('dblclick', App.planesView.showPlane);
 		});
+	},
+	flights: function(){
+		var flightsCollection = new App.Flights();
+		flightsCollection.fetch().then(function(){
+			App.flightsView = new App.FlightsView({ collection: flightsCollection });
+		$("#flights_button").on("click", App.flightsView.renderFlights);
+		});
 	}
 })
 App.router = new App.Router();
+
+$('a').on('click', function(event){
+	event.preventDefault();
+	var href = $(this).attr('href');
+  App.router.openPage(href);
+});

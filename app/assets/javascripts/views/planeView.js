@@ -1,7 +1,7 @@
 var App = App || {};
 
 App.PlaneView = Backbone.View.extend({
-	tagName: 'li',
+	tagName: 'tr',
 	className: "plane",
 
 	render: function(){

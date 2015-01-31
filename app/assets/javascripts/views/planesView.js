@@ -10,9 +10,9 @@ App.PlanesView = Backbone.View.extend({
 	},
 
 	showPlane: function(){
-		console.log(this.$el.find('.name').val());
+		console.log(this.$el.find('.p_name').html());
 		$('#flight_list').fadeOut(200);
-		$('#flight_form').html(JST['planes/plane_form']());
+		this.$el.html(JST['planes/plane_form']());
 	},
 
 	cancelForm: function(event){
@@ -47,11 +47,11 @@ App.PlanesView = Backbone.View.extend({
 	},
 
 	renderCollection: function(data){
-		this.$el.find('ul').html("");
+		this.$el.find('tbody').html("");
 
 		data.each(function(plane){
 			var planeView = new App.PlaneView({ model: plane })
-			this.$el.find('ul').append(planeView.render().el);
+			this.$el.find('tbody').append(planeView.render().el);
 		}, this);
 	},
 
