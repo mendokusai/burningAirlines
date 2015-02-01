@@ -24,7 +24,7 @@ App.Router = Backbone.Router.extend({
 			$('#add_plane').on('click', App.planesView.renderForm);
 			$('#submit_plane').on('click', App.planesView.addPlane);
 			$('#cancel_form').on('click', App.planesView.cancelForm);
-			$('.plane').on('dblclick', App.planesView.showPlane);
+			// $('.plane').on('dblclick', App.planeView.viewPlane);
 		});
 	},
 	flights: function(){
