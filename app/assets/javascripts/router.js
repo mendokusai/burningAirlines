@@ -23,6 +23,7 @@ App.Router = Backbone.Router.extend({
 		});
 	},
 	flights: function(){
+		App.router.navigate("/flights", { trigger: true });
 		var flightsCollection = new App.Flights();
 		flightsCollection.fetch().then(function(){
 			App.flightsView = new App.FlightsView({ collection: flightsCollection });
