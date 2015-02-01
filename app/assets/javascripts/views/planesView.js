@@ -17,7 +17,7 @@ App.PlanesView = Backbone.View.extend({
 
 	cancelForm: function(){
 		this.$el.find('form').fadeOut();
-		$('#flight_list').fadeIn();
+		renderForm();
 
 	},
 

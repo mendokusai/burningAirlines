@@ -8,6 +8,7 @@ App.FlightsView = Backbone.View.extend({
 		'click #submit_f_search': 'submitSearch',
 		'click #add_flights': 'addFlightForm',
 		'click #submit_flight': 'addFlight'
+		
 	},
 
 	defaults: {

@@ -12,20 +12,25 @@
 <header>
 <div class='header'>
 <div id="brand">
-	<h2><a href="/">BURNING AIRLINES</a></h2>
+	<h2><a href="/" id="logo">BURNING AIRLINES</a></h2>
 </div>
 <div id="menu_options">
 		<ul>
-			<li><a href="/">Admin</a></li> |
+		<% if user_signed_in? %>
+			<% if current_user.admin? %>
 			<li><a href="airplanes" id="planes_button">Planes</a></li> |
 			<li><a href="flights" id="flights_button">Flights</a></li> | 
+				<% end %>
+			<% end %>
 			<li><a href="search" id="search_button">Search Flights</a></li> |
-			<li><a href="/">Users</a></li>
+			<li><a href="/users/sign_in" id="sign_in">Users</a></li>
 		</ul>
 	</div>
 </div>
 </header>
 <main>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= yield %>
 <div id="container"></div>
 </main>

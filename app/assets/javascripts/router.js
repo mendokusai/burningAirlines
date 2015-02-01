@@ -4,6 +4,11 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		'flights' : 'flights',
 		'airplanes' : 'planes',
+		'search' : 'searchFlights'
+	},
+
+	searchFlights: function(){
+		$('#search_button').on('click', App.planesView.renderFlights);
 	},
 
 	openPage: function(url) {
@@ -32,7 +37,15 @@ App.Router = Backbone.Router.extend({
 			$('#back_to_flights').on('click', App.flightsView.reShowFlights);
 		});
 	}
-})
+});
+$('#logo').on('click', function(){
+	window.location.href = '/';
+});
+
+$('#sign_in').on('click', function(){
+	window.location.href = '/users/sign_in';
+});		
+
 App.router = new App.Router();
 
 $('a').on('click', function(event){
