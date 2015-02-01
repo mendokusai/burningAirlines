@@ -37,7 +37,9 @@ a:hover {
 .plane_form{
 	display: inline-block;
 }
-
+.flight:hover{
+	background-color: #d2079d;
+}
 .plane:hover{
 	background-color: #d2079d;
 }

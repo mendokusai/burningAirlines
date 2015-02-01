@@ -26,7 +26,9 @@ App.Router = Backbone.Router.extend({
 		var flightsCollection = new App.Flights();
 		flightsCollection.fetch().then(function(){
 			App.flightsView = new App.FlightsView({ collection: flightsCollection });
-		$("#flights_button").on("click", App.flightsView.renderFlights);
+			$("#flights_button").on("click", App.flightsView.renderFlights);
+			$('.flight').on('dblclick', App.flightsView.showFlight);
+			$('#back_to_flights').on('click', App.flightsView.reShowFlights);
 		});
 	}
 })
